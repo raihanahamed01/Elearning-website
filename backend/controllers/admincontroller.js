@@ -22,7 +22,7 @@ export const createCourse=TryCatch(async(req,res)=>{
         createdby,
         image:image?.path,
         duration,
-        price
+        price,
     })
     res.status(201).json({
         message:"course created successfully"
