@@ -72,7 +72,7 @@ const Lecture = ({user}) => {
     }
     const submitHandler=async(e)=>{
         setBtnloading(true)
-        e.preventdefault()
+        e.preventDefault()
         const myForm=new FormData()
         myForm.append("title",title)
         myForm.append("description",description)
@@ -148,7 +148,7 @@ const Lecture = ({user}) => {
               )}
             </div>
             <div className="right">
-              {user && user.role === "admin " && (
+              {user && user.role === "admin" && (
                 <button onClick={() => setShow(!show)} className="common-btn">
                   {show ? "Close" : "Add Lecture +"}
                 </button>

@@ -44,7 +44,7 @@ const Admincourses = ({user}) => {
     const { courses, fetchcourses } = Coursedata();
 
     const submitHandler=async(e)=>{
-        e.preventdefault()
+        e.preventDefault()
         setBtnLoading(true)
 
         const myForm=new FormData()
@@ -91,7 +91,7 @@ const Admincourses = ({user}) => {
           <div className="dashboard-content">
             {courses && courses.length > 0 ? (
               courses.map((e) => {
-                return <Coursecard key={e._id} course={e} />;
+                return <Coursecard key={e._id} course={e} server={server} />;
               })
             ) : (
               <p>No Courses yet</p>

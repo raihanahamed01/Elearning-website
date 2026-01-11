@@ -49,7 +49,7 @@ export const addLectures=TryCatch(async(req,res)=>{
         message:"lecture added",
         lecture
     })
-  
+
 })
 export const deleteLecture=TryCatch(async(req,res)=>{
     const lecture=await Lecture.findById(req.params.id)
@@ -118,12 +118,12 @@ export const updaterole=TryCatch(async(req,res)=>{
         })
     }
     if (user.role === "admin") {
-      user.role = "user";
-      await user.save();
+        user.role = "user";
+        await user.save();
 
-      return res.status(200).json({
+        return res.status(200).json({
         message: "Role updated ",
-      });
+        });
     }
 
 })
