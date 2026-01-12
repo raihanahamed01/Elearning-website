@@ -29,7 +29,7 @@ const Coursedescription = ({user}) => {
       })
       const options = {
         key: "rzp_test_Ryz9K6GNIRxAcT", // Enter the Key ID generated from the Dashboard
-        amount: order.id, // Amount is in currency subunits.
+        amount: order.amount, // Amount is in currency subunits.
         currency: "INR",
         name: "E Learning", //your business name
         description: "Learn With Us",
@@ -69,6 +69,17 @@ const Coursedescription = ({user}) => {
         },
       };
       const razorpay=new window.Razorpay(options)
+      
+      razorpay.on("payment.failed", function (response) {
+        toast.error("Payment Failed");
+        setLoading(false);
+      });
+
+      razorpay.on("modal.dismiss", function () {
+        toast.error("Payment Cancelled");
+        setLoading(false);
+      });
+
       razorpay.open()
 
     }

@@ -101,12 +101,14 @@ const Lecture = ({user}) => {
         if(confirm("Are you sure to delete this lecture?")){
             try {
                 const {data}=await axios.delete(`${server}/api/lecture/${id}`,{
-                    token:localStorage.getItem("token")
+                    headers:{
+                        token:localStorage.getItem("token")
+                    }
                 })
-                toast.success(data.messsage)
+                toast.success(data.message)
                 fetchlectures()
             } catch (error) {
-                toast.error(error.response.data.messsage);
+                toast.error(error.response.data.message);
                 
             }
         }
