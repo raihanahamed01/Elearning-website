@@ -3,6 +3,8 @@ import "./courses.css"
 import { Coursedata } from '../../context/Coursecontext.jsx'
 import Coursecard from '../../components/coursecard/Coursecard.jsx'
 
+import { server } from '../../main.jsx'
+
 const Courses = () => {
     const {courses}=Coursedata()
   return (
@@ -11,7 +13,7 @@ const Courses = () => {
     <div className='course-container'>
         {
             courses && courses.length>0 ? courses.map((e)=>(
-                <Coursecard key={e._id} course={e}/>
+                <Coursecard key={e._id} course={e} server={server}/>
             )): <p>No Courses Yet</p>
         }
     </div>

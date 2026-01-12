@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { Coursedata } from '../../context/Coursecontext.jsx'
 
-const Coursecard = ({course}) => {
+const Coursecard = ({course, server}) => {
     const navigate=useNavigate()
     const {user,isAuth}=Userdata()
     const {fetchcourses}=Coursedata()
